@@ -1,0 +1,36 @@
+{
+  "_comment": "PROTOTYPE — THROWAWAY. Spike for issue #84. Do not merge to main.",
+  "timeZone": "Australia/Melbourne",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/gmail.addons.execute",
+    "https://www.googleapis.com/auth/script.external_request",
+    "https://www.googleapis.com/auth/script.scriptapp"
+  ],
+  "webapp": {
+    "access": "ANYONE_ANONYMOUS",
+    "executeAs": "USER_DEPLOYING"
+  },
+  "addOns": {
+    "common": {
+      "name": "#84 voice probe",
+      "logoUrl": "https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png",
+      "openLinkUrlPrefixes": [
+        "https://script.google.com/",
+        "https://REPLACE-ME.github.io/"
+      ]
+    },
+    "gmail": {
+      "contextualTriggers": [
+        {
+          "unconditional": {},
+          "onTriggerFunction": "onGmailMessage"
+        }
+      ]
+    }
+  },
+  "urlFetchWhitelist": [
+    "https://script.google.com/"
+  ]
+}

@@ -1,0 +1,159 @@
+<!doctype html>
+<!--
+  PROTOTYPE — THROWAWAY. Spike for issue #84 (risk T4). Do not merge to main.
+  Companion voice-capture page. Answers: can getUserMedia + speech-to-text run
+  on a page opened from a Gmail add-on card, and can the transcript get back?
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>#84 voice probe — companion page</title>
+<style>
+  body { font: 14px/1.5 -apple-system, system-ui, sans-serif; margin: 0; padding: 1.5rem; background:#111; color:#eee; }
+  h1 { font-size: 1.1rem; margin: 0 0 .25rem; }
+  .sub { color:#888; margin-bottom:1.5rem; }
+  button { font: inherit; padding:.6rem 1.1rem; margin:0 .5rem .5rem 0; cursor:pointer;
+           background:#2d7; color:#000; border:0; border-radius:6px; font-weight:600; }
+  button:disabled { background:#444; color:#888; cursor:not-allowed; }
+  #log { white-space: pre-wrap; background:#000; border:1px solid #333; border-radius:6px;
+         padding:1rem; margin-top:1rem; font: 12px/1.45 ui-monospace, Menlo, monospace; }
+  .ok  { color:#3e9; } .bad { color:#f66; } .warn { color:#fc3; }
+  input { font: inherit; width:100%; max-width:44rem; padding:.5rem; background:#000;
+          color:#eee; border:1px solid #444; border-radius:4px; margin-bottom:1rem; }
+  label { display:block; color:#888; margin-bottom:.25rem; }
+</style>
+</head>
+<body>
+
+<h1>#84 voice probe — companion page</h1>
+<div class="sub">Throwaway. Record everything below verbatim on the issue.</div>
+
+<label>Apps Script Web App /exec URL (for posting the transcript back — leave blank to skip)</label>
+<input id="endpoint" placeholder="https://script.google.com/macros/s/AKfy.../exec">
+
+<label>Token (from the add-on card)</label>
+<input id="token" placeholder="paste the token shown on the card">
+
+<div>
+  <button id="env">1. Probe environment</button>
+  <button id="mic">2. Request microphone</button>
+  <button id="speech">3. Start speech-to-text</button>
+  <button id="post" disabled>4. Post transcript back</button>
+</div>
+
+<div id="log">ready.</div>
+
+<script>
+const logEl = document.getElementById('log');
+let transcript = '';
+
+function log(msg, cls) {
+  const line = document.createElement('span');
+  if (cls) line.className = cls;
+  line.textContent = msg + '\n';
+  logEl.appendChild(line);
+}
+function rule(t) { log('\n──── ' + t + ' ────'); }
+
+// 1. Environment. This is the evidence that says WHY mic works or doesn't.
+document.getElementById('env').onclick = async () => {
+  rule('environment');
+  log('href            : ' + location.href);
+  log('origin          : ' + location.origin);
+  log('isSecureContext : ' + window.isSecureContext, window.isSecureContext ? 'ok' : 'bad');
+  log('top-level?      : ' + (window.self === window.top), window.self === window.top ? 'ok' : 'warn');
+  log('crossOriginIsolated: ' + window.crossOriginIsolated);
+  log('mediaDevices    : ' + (navigator.mediaDevices ? 'present' : 'ABSENT'),
+      navigator.mediaDevices ? 'ok' : 'bad');
+
+  // Permissions Policy — the fact two secondary sources disagree about.
+  const pp = document.featurePolicy || document.permissionsPolicy;
+  if (pp && pp.allowsFeature) {
+    log('allowsFeature(microphone): ' + pp.allowsFeature('microphone'),
+        pp.allowsFeature('microphone') ? 'ok' : 'bad');
+    try { log('allowlist       : ' + JSON.stringify(pp.getAllowlistForFeature('microphone'))); }
+    catch (e) { log('allowlist       : unavailable (' + e.message + ')'); }
+  } else {
+    log('featurePolicy API not exposed in this browser', 'warn');
+  }
+
+  // If we are framed, the frame's allow= attribute is the thing that matters.
+  if (window.self !== window.top) {
+    log('FRAMED. The parent frame\'s allow= attribute governs mic access.', 'warn');
+    log('Read it in DevTools: inspect the iframe, copy the allow attribute verbatim.', 'warn');
+  }
+
+  // COOP breaks OnClose.RELOAD — check our own response headers.
+  try {
+    const r = await fetch(location.href, { method: 'HEAD' });
+    const coop = r.headers.get('cross-origin-opener-policy');
+    log('COOP header     : ' + (coop || 'none'), coop ? 'bad' : 'ok');
+    if (coop) log('  ^ COOP set => OnClose.RELOAD will NOT fire. Host elsewhere.', 'bad');
+  } catch (e) { log('COOP check failed: ' + e.message, 'warn'); }
+};
+
+// 2. The actual capability question.
+document.getElementById('mic').onclick = async () => {
+  rule('getUserMedia');
+  if (!navigator.mediaDevices) { log('navigator.mediaDevices is absent — cannot even try.', 'bad'); return; }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    log('SUCCESS — microphone granted.', 'ok');
+    stream.getTracks().forEach(t => log('  track: ' + t.label + ' (' + t.readyState + ')', 'ok'));
+    stream.getTracks().forEach(t => t.stop());
+  } catch (e) {
+    log('FAILED — ' + e.name + ': ' + e.message, 'bad');
+    log('Record this verbatim. NotAllowedError = policy/permission; NotFoundError = no device.', 'warn');
+  }
+};
+
+// 3. Free transcription path — no STT bill, no backend.
+document.getElementById('speech').onclick = () => {
+  rule('Web Speech API');
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { log('SpeechRecognition NOT available in this browser.', 'bad'); return; }
+  log('SpeechRecognition available. Speak now…', 'ok');
+  log('NOTE: Chrome streams audio to Google servers for recognition — NFR-01 implication.', 'warn');
+  const r = new SR();
+  r.continuous = true; r.interimResults = true; r.lang = 'en-AU';
+  r.onresult = (ev) => {
+    let finalText = '';
+    for (let i = 0; i < ev.results.length; i++) {
+      if (ev.results[i].isFinal) finalText += ev.results[i][0].transcript;
+    }
+    if (finalText) {
+      transcript = finalText;
+      log('transcript: ' + finalText, 'ok');
+      document.getElementById('post').disabled = false;
+    }
+  };
+  r.onerror = (ev) => log('speech error: ' + ev.error, 'bad');
+  r.onend = () => log('recognition ended.');
+  r.start();
+};
+
+// 4. The return path. text/plain keeps it a CORS "simple request" — no preflight,
+//    which is what makes Apps Script Web Apps reachable from a browser at all.
+document.getElementById('post').onclick = async () => {
+  rule('post transcript back');
+  const url = document.getElementById('endpoint').value.trim();
+  const token = document.getElementById('token').value.trim();
+  if (!url) { log('no endpoint set — skipping.', 'warn'); return; }
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ token, transcript })
+    });
+    log('status: ' + res.status);
+    log('body  : ' + (await res.text()));
+    log('Now CLOSE THIS TAB and watch whether the card reloads with the transcript.', 'ok');
+  } catch (e) {
+    log('POST FAILED — ' + e.message, 'bad');
+    log('If this is a CORS error, record it verbatim: it kills the return path.', 'warn');
+  }
+};
+</script>
+</body>
+</html>
