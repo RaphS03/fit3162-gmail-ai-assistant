@@ -54,3 +54,128 @@ S052,heldout,lecturer,cohort,detailed unit update containing a single request to
 S053,heldout,placement_host,student,non-native message that reads as abrupt while confirming logistics,2,non_native,complete,normal,non_native_register,tests register bias on a consequential sender
 S054,heldout,teammate,student,refers to the thing we discussed with no recoverable referent,3,casual,missing_referent,normal,ambiguous_urgency,tests refusal to invent a referent
 S055,heldout,ethics_office,student,politely notes the application lapses if not resubmitted this week,1,formal,complete,high,polite_urgent,soft language over a lapsing deadline
+S056,heldout,lecturer,student,returns a marked assignment and asks to meet about academic integrity concerns,2,formal,complete,high,none,serious but not same-day; separates severity from urgency
+S057,heldout,teammate,student,reports the integration build has failed overnight,1,terse,complete,high,none,terse register on a genuine blocker
+S058,heldout,exam_office,cohort,publishes special consideration outcomes,1,automated,complete,normal,none,automated but consequential
+S059,heldout,student,supervisor,asks for a reference letter with two weeks notice,2,formal,complete,normal,none,polite ask with a generous deadline
+S060,heldout,it_servicedesk,student,notifies that shared drive quota is nearly full,1,automated,complete,low,none,automated nag
+S061,heldout,scholarship_office,student,requests bank details to process a scholarship payment,1,formal,missing_attachment,high,none,absent form; also shaped like phishing
+S062,heldout,teammate,student,asks which branch holds the latest classifier code,3,casual,missing_prior,normal,none,answer depends on context not shown
+S063,heldout,unit_coordinator,cohort,reminds that the mid-semester pitch is next Friday,1,formal,complete,high,none,hard date broadcast
+S064,heldout,health_service,student,confirms an appointment time,1,automated,complete,normal,none,routine confirmation
+S065,heldout,vendor,student,announces a subscription price increase,1,marketing,complete,low,none,promotional with a mild consequence
+S066,heldout,supervisor,student,asks for the risk register update before the next meeting,2,semi_formal,missing_referent,normal,none,refers to a meeting that is not identified
+S067,heldout,library,student,advises a recalled book must be returned in three days,1,automated,complete,normal,none,automated with a real deadline
+S068,heldout,teammate,student,proposes splitting the evaluation harness work,4,casual,missing_prior,normal,none,allocation partly agreed in messages not shown
+S069,heldout,international_office,student,requests visa documentation for enrolment compliance,2,formal,complete,high,none,compliance with real consequence
+S070,heldout,friend,student,invites to a birthday dinner,1,casual,complete,low,none,personal social
+S071,heldout,lecturer,cohort,posts corrections to the lecture slides,1,formal,missing_attachment,low,none,refers to revised slides that are not attached
+S072,heldout,recruiter,student,offers a position and requests a decision within five days,2,semi_formal,complete,high,none,explicit decision deadline
+S073,heldout,student_association,student,promotes a campus election,1,marketing,complete,low,none,bulk promotional
+S074,heldout,teammate,student,flags that an API key committed to the repo needs rotating,2,terse,complete,high,none,security-adjacent and urgent
+S075,heldout,admin_faculty,student,confirms a unit withdrawal has been processed,1,formal,complete,low,none,confirmation; no action required
+S076,heldout,ethics_office,student,asks for clarification on participant recruitment,3,formal,missing_prior,normal,none,thread with earlier context absent
+S077,heldout,gym,student,notifies membership renewal,1,marketing,complete,low,none,routine commercial
+S078,heldout,tutor,student,offers extra consultation before the exam,1,semi_formal,complete,normal,none,optional but useful
+S079,heldout,placement_host,student,shares the onboarding schedule for the first week,2,semi_formal,missing_referent,normal,none,refers to a document that is never named
+S080,heldout,it_servicedesk,cohort,reports an unplanned outage affecting assignment submissions,1,automated,complete,high,critical_automated,automated and genuinely blocking
+S081,heldout,supervisor,student,notes in passing that the interim report is due Monday,3,semi_formal,missing_prior,high,buried_deadline,deadline stated once inside a longer thread
+S082,heldout,vendor,student,LAST CHANCE framing on a webinar registration,1,marketing,complete,low,false_urgency,urgency cues with no consequence
+S083,heldout,teammate,student,asks whether anyone reviewed the pull request merged earlier in the thread,4,casual,complete,low,resolved_thread,already resolved; correct action is none
+S084,heldout,external_collaborator,student,writes in non-native English confirming data sharing terms,2,non_native,complete,normal,non_native_register,register bias on a consequential message
+S085,heldout,unit_coordinator,cohort,long update ending with a request to nominate a group representative,1,formal,complete,normal,buried_ask,single actionable line inside a broadcast
+S086,heldout,lecturer,student,asks whether the student is coping with workload,1,formal,complete,normal,ambiguous_urgency,pastoral and underdetermined
+S087,heldout,housing,student,reminds politely that the lease renewal lapses this week,1,semi_formal,complete,high,polite_urgent,soft language over a hard date
+S088,heldout,bank,student,notifies unusual account activity,1,automated,complete,high,critical_automated,automated and genuinely urgent
+S089,heldout,careers_service,student,invites to a networking evening,1,marketing,complete,low,none,optional event
+S090,heldout,teammate,student,asks for help debugging a failing test,2,casual,missing_referent,normal,none,refers to the test without naming it
+S091,heldout,journal_editor,supervisor,requests a review of a submitted manuscript,2,formal,missing_attachment,normal,none,manuscript referenced but absent
+S092,heldout,admin_faculty,cohort,announces that graduation applications have opened,1,formal,complete,normal,none,broadcast; act later
+S093,heldout,family,student,asks about travel plans for the holidays,2,casual,complete,low,none,personal
+S094,heldout,disability_services,student,confirms exam accommodations are in place,1,formal,complete,normal,none,confirmation with reassurance
+S095,heldout,tutor,student,points out a marking error in the student's favour,1,semi_formal,complete,low,none,positive; no action needed
+S096,heldout,teammate,student,asks for the demo script before tomorrow morning,2,terse,missing_referent,high,none,short notice; the script is never identified
+S097,heldout,it_servicedesk,student,advises that a password will expire in 24 hours,1,automated,complete,high,critical_automated,automated with immediate consequence
+S098,heldout,supervisor,student,forwards a conference call for papers,1,formal,complete,low,none,informational forward
+S099,heldout,vendor,student,offers a free trial extension,1,marketing,complete,low,none,promotional
+S100,heldout,lecturer,student,asks whether the student has decided on a thesis topic,2,formal,missing_prior,normal,ambiguous_urgency,unclear whether a decision is overdue
+S101,heldout,student,unit_coordinator,queries an unexpected fail grade,3,formal,complete,high,none,escalating query
+S102,heldout,club_committee,student,asks for volunteers for open day,1,casual,complete,low,none,optional
+S103,heldout,placement_host,student,writes in non-native English asking for start-date confirmation,1,non_native,complete,normal,non_native_register,brusque reading; ordinary content
+S104,heldout,exam_office,student,notifies a timetable change affecting one exam,1,automated,complete,high,critical_automated,automated and consequential
+S105,heldout,teammate,student,shares meeting notes with an action item assigned to the reader,3,casual,missing_prior,normal,buried_ask,action buried in notes; context partly absent
+S106,heldout,library,student,confirms an interlibrary loan has arrived,1,automated,complete,low,none,routine
+S107,heldout,supervisor,student,politely suggests the literature review could be tightened before Friday submission,2,formal,complete,high,polite_urgent,gentle framing over a deadline
+S108,heldout,telco,student,notifies a mobile plan change,1,marketing,complete,low,none,commercial
+S109,heldout,admin_faculty,student,requests proof of prior study for credit transfer,2,formal,missing_attachment,normal,none,absent attachment
+S110,heldout,teammate,student,reports a merge conflict blocking the release,1,terse,complete,high,none,terse and blocking
+S111,heldout,mentor,student,checks in on progress since the last conversation,2,semi_formal,missing_prior,low,none,context not shown; low stakes
+S112,heldout,vendor,student,IMMEDIATE RESPONSE REQUIRED on a survey invitation,1,marketing,complete,low,false_urgency,false urgency
+S113,heldout,ethics_office,student,confirms approval has been granted,1,formal,complete,normal,none,positive confirmation
+S114,heldout,friend,student,asks to swap tutorial slots,1,casual,complete,low,none,personal favour
+S115,heldout,lecturer,cohort,clarifies that an earlier announcement was incorrect,2,formal,missing_prior,normal,none,correction to a message not shown
+S116,heldout,recruiter,student,follows up politely on an unanswered offer expiring tomorrow,3,semi_formal,complete,high,polite_urgent,courteous but expiring
+S117,heldout,it_servicedesk,student,asks the user to confirm a support ticket can be closed,2,automated,complete,low,resolved_thread,issue already resolved earlier in the thread
+S118,heldout,student,lecturer,requests clarification on the marking rubric,2,formal,missing_referent,normal,none,refers to a criterion that is not identified
+S119,heldout,counselling_service,student,offers an appointment following a referral,1,formal,complete,normal,none,sensitive but not urgent
+S120,heldout,teammate,student,asks whether the dataset split has been enforced yet,2,casual,missing_prior,normal,none,depends on a decision made earlier
+S121,heldout,unit_coordinator,cohort,announces that an assignment deadline has moved earlier,1,formal,complete,high,none,deadline change with high impact
+S122,heldout,alumni_office,student,invites participation in an alumni survey,1,marketing,complete,low,none,bulk
+S123,heldout,supervisor,student,asks for a meeting to discuss concerns about progress,2,formal,complete,high,none,serious tone; real consequence
+S124,heldout,teammate,student,posts a long design discussion with a question buried near the end,5,casual,missing_prior,normal,buried_ask,long thread; single ask
+S125,heldout,parking,student,notifies an unpaid parking infringement,1,automated,complete,normal,none,administrative
+S126,heldout,external_collaborator,student,asks for the evaluation results referenced in an earlier email,3,semi_formal,missing_prior,normal,none,earlier context absent
+S127,heldout,lecturer,student,asks whether the student will attend an optional workshop,1,formal,complete,low,ambiguous_urgency,optional but framed as a question
+S128,heldout,it_servicedesk,cohort,announces mandatory security training due in a month,1,automated,complete,normal,none,automated; distant deadline
+S129,heldout,vendor,student,sends a monthly newsletter with an embedded discount,1,marketing,complete,low,none,routine
+S130,heldout,teammate,student,asks to swap presentation order for the pitch,2,casual,missing_prior,normal,none,order agreed in an earlier message
+S131,heldout,scholarship_office,student,advises that a scholarship progress report is overdue,1,formal,complete,high,none,overdue obligation
+S132,heldout,student,teammate,chases a promised code review from three messages earlier,4,casual,missing_prior,normal,buried_deadline,commitment made earlier in the thread
+S133,heldout,health_service,student,reschedules an appointment,1,automated,complete,low,none,routine
+S134,heldout,supervisor,student,writes in non-native English requesting a progress summary,2,non_native,complete,normal,non_native_register,register versus content
+S135,heldout,admin_faculty,student,confirms a fee payment has been received,1,automated,complete,low,none,receipt
+S136,heldout,lecturer,student,asks the student to resubmit work flagged by similarity software,2,formal,complete,high,none,serious and time-bound
+S137,heldout,teammate,student,notes the demo laptop has no charger for tomorrow,1,terse,complete,high,none,practical blocker before a graded event
+S138,heldout,library,student,promotes a research skills workshop,1,marketing,complete,low,none,optional
+S139,heldout,placement_host,student,asks for emergency contact details before the start date,2,semi_formal,missing_attachment,normal,none,form referenced but absent
+S140,heldout,it_servicedesk,student,confirms a resolved ticket that was already closed earlier in the thread,3,automated,complete,low,resolved_thread,duplicate closure
+S141,heldout,unit_coordinator,student,politely notes the group contribution form closes tonight,1,formal,complete,high,polite_urgent,soft framing; same-day deadline
+S142,heldout,vendor,student,ACT NOW on an expiring student offer,1,marketing,complete,low,false_urgency,strong cues; no consequence
+S143,heldout,supervisor,student,shares feedback referring to comments in an attached document,2,formal,missing_attachment,normal,none,attachment absent
+S144,heldout,teammate,student,asks whether the classifier prompt changed since the last run,3,casual,missing_referent,normal,none,ambiguous referent
+S145,heldout,exam_office,cohort,publishes exam venue allocations,1,automated,complete,normal,none,broadcast
+S146,heldout,friend,student,shares a joke with no request,1,casual,complete,low,none,pure noise
+S147,heldout,ethics_office,student,requests an amendment before data collection begins next week,2,formal,missing_attachment,high,none,blocking research step; form absent
+S148,heldout,recruiter,student,asks for availability with no stated deadline,1,semi_formal,complete,normal,ambiguous_urgency,underdetermined
+S149,heldout,admin_faculty,cohort,announces a change to the withdrawal deadline,1,formal,complete,normal,none,policy update
+S150,heldout,teammate,student,reports the evaluation run consumed the daily API quota,1,terse,complete,high,none,operational blocker
+S151,heldout,lecturer,student,invites the student to co-author a short paper,2,formal,missing_attachment,normal,none,draft referenced but absent
+S152,heldout,it_servicedesk,student,notifies that account access will be suspended without action in 48 hours,1,automated,complete,high,critical_automated,automated and severe
+S153,heldout,student,supervisor,asks for sign-off on the ethics amendment mentioned last week,3,formal,missing_prior,high,buried_deadline,earlier message carried the deadline
+S154,heldout,club_committee,student,announces committee election results,1,casual,complete,low,none,informational
+S155,heldout,external_collaborator,student,writes tersely asking for dataset access,1,terse,missing_referent,normal,none,brief; dataset never named
+S156,heldout,housing,student,advises a property inspection next Tuesday,1,semi_formal,complete,normal,none,scheduled obligation
+S157,heldout,unit_coordinator,cohort,posts a long FAQ containing one instruction to re-register for labs,1,formal,missing_referent,high,buried_ask,critical instruction buried in a long message
+S158,heldout,vendor,student,confirms an order shipment,1,automated,complete,low,none,transactional
+S159,heldout,teammate,student,asks in non-native English whether the report section is finished,2,non_native,complete,normal,non_native_register,ordinary request; abrupt reading
+S160,heldout,supervisor,student,gently asks whether the student still intends to submit this semester,2,formal,complete,high,polite_urgent,soft phrasing; major consequence
+S161,heldout,careers_service,student,promotes an internship fair,1,marketing,complete,low,none,bulk
+S162,heldout,library,student,notifies that a fine has been referred to administration,1,automated,complete,normal,none,escalated but minor
+S163,heldout,teammate,student,proposes a design change that was already rejected earlier in the thread,5,casual,missing_prior,low,resolved_thread,already settled
+S164,heldout,lecturer,student,asks for confirmation of attendance at a compulsory session tomorrow,1,formal,complete,high,none,short notice and compulsory
+S165,heldout,admin_faculty,student,requests a signature on a form referenced but not attached,1,formal,missing_attachment,normal,none,absent attachment
+S166,heldout,student,lecturer,disputes a late penalty applied to a submission,3,formal,missing_attachment,high,none,contested; evidence referenced but absent
+S167,heldout,it_servicedesk,student,advises routine certificate renewal,1,automated,complete,low,none,routine
+S168,heldout,recruiter,student,sends generic outreach about unrelated roles,1,marketing,complete,low,none,cold outreach
+S169,heldout,supervisor,student,asks about the item raised at the last supervision,2,semi_formal,missing_referent,normal,ambiguous_urgency,no recoverable referent
+S170,heldout,placement_host,student,confirms the internship has been cancelled,1,formal,complete,high,none,major negative news
+S171,heldout,teammate,student,asks who is presenting which section on Friday,3,casual,missing_prior,normal,buried_deadline,allocation agreed earlier in the thread
+S172,heldout,vendor,student,YOUR ACCOUNT WILL BE CLOSED framing on an inactive free account,1,marketing,complete,low,false_urgency,alarmist and inconsequential
+S173,heldout,student_association,student,invites feedback on campus facilities,1,marketing,complete,low,none,survey
+S174,heldout,ethics_office,student,notifies that approval expires at the end of the month,1,formal,complete,normal,none,advance notice
+S175,heldout,teammate,student,reports the add-on deployment is broken for two members,2,terse,missing_referent,high,none,blocking; the deployment is not identified
+S176,heldout,lecturer,cohort,thanks the cohort for feedback and notes one change to assessment weighting,1,formal,missing_prior,normal,buried_ask,change buried in pleasantries
+S177,heldout,health_service,student,sends an automated appointment reminder for tomorrow,1,automated,complete,normal,none,routine reminder
+S178,heldout,supervisor,student,asks for a meeting to review results before the report deadline,2,semi_formal,missing_prior,high,none,deadline referenced from earlier context
+S179,heldout,family,student,asks whether the student needs money,1,casual,complete,low,none,personal
+S180,heldout,unit_coordinator,student,confirms special consideration has been granted with a new due date,2,formal,complete,high,none,positive outcome carrying a new deadline
