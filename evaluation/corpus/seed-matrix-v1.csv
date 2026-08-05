@@ -1,0 +1,56 @@
+seed_id,tier,persona_from,persona_to,scenario,thread_length,register,context,seeded_intent,adversarial,notes
+S001,dev,student,lecturer,requests an assignment extension after documented illness,1,formal,complete,high,none,clear ask with a stated deadline
+S002,dev,unit_coordinator,cohort,announces a permanent lecture room change from week 5,1,formal,complete,normal,none,broadcast; actionable but not urgent
+S003,dev,teammate,student,proposes three times for the group project meeting,3,casual,complete,normal,none,short scheduling thread; the ask is in the latest message
+S004,dev,tutor,student,returns lab feedback with minor corrections,1,semi_formal,complete,low,none,informational; no action required
+S005,dev,library,student,notifies two overdue loans with a fine accruing,1,automated,complete,low,none,automated and low stakes; should be deprioritised
+S006,dev,recruiter,student,invites to a graduate interview and asks for availability by Friday,2,semi_formal,complete,high,none,explicit deadline plus a required reply
+S007,dev,supervisor,student,confirms the weekly supervision slot has moved to Thursday,2,semi_formal,complete,normal,none,small logistics change inside an ongoing thread
+S008,dev,admin_faculty,student,flags an enrolment discrepancy needing action before census date,1,formal,complete,high,none,hard institutional deadline
+S009,dev,friend,student,asks about weekend plans,1,casual,complete,low,none,personal mail in the same inbox; must not be over-prioritised
+S010,dev,vendor,student,promotes a student discount on software licences,1,marketing,complete,low,none,unambiguous promotional
+S011,dev,lecturer,cohort,clarifies an ambiguous assignment specification after student questions,4,formal,complete,normal,none,longer thread; resolution sits in the final message
+S012,dev,careers_service,student,advertises a resume workshop next month,1,marketing,complete,low,none,low-urgency event promotion
+S013,dev,teammate,student,reports the shared repository is broken and blocking everyone,2,terse,complete,high,none,terse register but genuinely urgent; register must not drive the label
+S014,dev,ethics_office,student,requests a missing signature on a low-risk ethics application,1,formal,missing_attachment,normal,none,refers to an attached form that is not present
+S015,dev,it_servicedesk,student,advises a scheduled maintenance outage on Sunday,1,automated,complete,low,none,automated informational
+S016,dev,club_committee,student,calls for committee nominations closing in two weeks,1,semi_formal,complete,low,none,soft deadline; optional participation
+S017,dev,unit_coordinator,student,responds to a grade query and explains the marking rubric,3,formal,complete,normal,none,multi-turn explanation; summary must not lose the rationale
+S018,dev,placement_host,student,confirms internship start date and onboarding paperwork,2,semi_formal,complete,high,none,time-bound paperwork
+S019,dev,lecturer,student,declines a request to reweight an assessment,2,formal,complete,normal,none,negative answer; no further action needed
+S020,dev,family,student,shares holiday photos,1,casual,complete,low,none,clearly personal and low priority
+S021,dev,lecturer,student,asks whether the student intends to submit without stating a deadline,1,formal,complete,normal,ambiguous_urgency,two readers could reasonably disagree on priority
+S022,dev,teammate,student,asks for the final slide deck; the submission deadline was stated three messages earlier,4,casual,missing_prior,high,buried_deadline,deadline only recoverable from earlier thread context
+S023,dev,supervisor,student,gently asks whether the draft might be ready soon before an unstated hard date,2,formal,complete,high,polite_urgent,softened language wrapping a genuine deadline
+S024,dev,vendor,student,URGENT ACTION REQUIRED subject line on a licence renewal promotion,1,marketing,complete,low,false_urgency,urgency framing on something that does not matter
+S025,dev,teammate,student,asks who is fixing the CI failure; a later message says it is already fixed,5,casual,complete,low,resolved_thread,correct action is none; naive summarisers still raise it
+S026,dev,it_servicedesk,student,automated notice that an assignment submission failed to upload,1,automated,complete,high,critical_automated,machine-generated and genuinely critical; easy to filter wrongly
+S027,dev,unit_coordinator,cohort,long semester-logistics announcement with one line asking for a room preference,1,formal,complete,normal,buried_ask,the actual request is one line inside a long message
+S028,dev,teammate,student,non-native phrasing that reads as brusque while making an ordinary request,2,non_native,complete,normal,non_native_register,register must not be mistaken for hostility or urgency
+S029,dev,admin_faculty,student,refers to the form discussed previously without naming it,2,formal,missing_referent,normal,ambiguous_urgency,unresolvable referent; tests hallucination directly
+S030,dev,lecturer,student,polite reminder that a mandatory safety induction closes tonight,1,formal,complete,high,polite_urgent,courteous wrapper over a same-day deadline
+S031,heldout,student,lecturer,queries an exam timetable clash with another unit,2,formal,complete,high,none,time-bound and consequential
+S032,heldout,unit_coordinator,cohort,releases the final exam timetable,1,formal,complete,normal,none,broadcast of consequential information
+S033,heldout,tutor,student,reminds that consultation hours change this week,1,semi_formal,complete,low,none,minor logistics
+S034,heldout,teammate,student,shares the draft architecture diagram for review,2,casual,complete,normal,none,review request with no stated deadline
+S035,heldout,recruiter,student,follows up after no response to an interview invitation,3,semi_formal,missing_prior,high,none,escalating follow-up; original terms not in the visible messages
+S036,heldout,library,student,confirms a group study room booking,1,automated,complete,low,none,automated confirmation
+S037,heldout,supervisor,student,provides written feedback on the interim report,2,formal,missing_attachment,normal,none,substantive feedback referring to an absent attachment
+S038,heldout,admin_faculty,cohort,announces a change to the special consideration process,1,formal,complete,normal,none,policy change; relevant later rather than now
+S039,heldout,friend,student,asks to borrow lecture notes,1,casual,complete,low,none,personal and low stakes
+S040,heldout,vendor,student,monthly product newsletter,1,marketing,complete,low,none,routine promotional
+S041,heldout,placement_host,student,requests police check documentation before the start date,2,formal,complete,high,none,compliance step blocking a start date
+S042,heldout,club_committee,student,invites to an end-of-semester social event,1,casual,complete,low,none,optional social
+S043,heldout,lecturer,student,asks the student to present their work at a seminar next week,2,formal,complete,normal,none,short-notice request with a real commitment
+S044,heldout,it_servicedesk,student,requires multi-factor authentication enrolment within seven days,1,automated,complete,normal,none,automated with a genuine but non-immediate deadline
+S045,heldout,careers_service,student,shares a list of open graduate roles,1,marketing,complete,low,none,bulk informational
+S046,heldout,teammate,student,asks for status; the actual deadline was set two messages earlier,4,casual,missing_prior,high,buried_deadline,tests whether earlier-message context is carried forward
+S047,heldout,unit_coordinator,student,asks whether the student will attend with no stated consequence,1,formal,complete,normal,ambiguous_urgency,genuinely underdetermined priority
+S048,heldout,supervisor,student,congratulates progress then asks for a signed form by tomorrow,2,semi_formal,complete,high,polite_urgent,positive framing hiding a hard deadline
+S049,heldout,vendor,student,FINAL NOTICE framing on an expiring free trial,1,marketing,complete,low,false_urgency,strong urgency cues with no real consequence
+S050,heldout,teammate,student,raises a merge conflict that is resolved later in the same thread,5,terse,complete,low,resolved_thread,summary must reflect the resolution rather than the alarm
+S051,heldout,admin_faculty,student,automated notice that enrolment will be cancelled for unpaid fees,1,automated,complete,high,critical_automated,automated and severe; the hardest automated case to classify correctly
+S052,heldout,lecturer,cohort,detailed unit update containing a single request to confirm group membership,1,formal,complete,normal,buried_ask,one actionable line inside a long broadcast
+S053,heldout,placement_host,student,non-native message that reads as abrupt while confirming logistics,2,non_native,complete,normal,non_native_register,tests register bias on a consequential sender
+S054,heldout,teammate,student,refers to the thing we discussed with no recoverable referent,3,casual,missing_referent,normal,ambiguous_urgency,tests refusal to invent a referent
+S055,heldout,ethics_office,student,politely notes the application lapses if not resubmitted this week,1,formal,complete,high,polite_urgent,soft language over a lapsing deadline
