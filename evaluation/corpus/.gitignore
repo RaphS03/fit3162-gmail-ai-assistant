@@ -1,0 +1,2 @@
+# Dry-run prompt dumps are throwaway; rendered corpus JSON is versioned.
+rendered/*/prompt-*.txt
