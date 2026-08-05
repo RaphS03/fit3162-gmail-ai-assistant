@@ -1,0 +1,26 @@
+{
+  "timeZone": "Australia/Melbourne",
+  "exceptionLogging": "STACKDRIVER",
+  "runtimeVersion": "V8",
+  "oauthScopes": [
+    "https://www.googleapis.com/auth/gmail.addons.execute",
+    "https://www.googleapis.com/auth/gmail.addons.current.message.metadata"
+  ],
+  "addOns": {
+    "common": {
+      "name": "S1_CS_15 Probe",
+      "logoUrl": "https://www.gstatic.com/images/branding/productlogos/gmail_2020q4/v1/web-48dp/logo_gmail_2020q4_color_1x_web_48dp.png",
+      "layoutProperties": {
+        "primaryColor": "#1a73e8"
+      }
+    },
+    "gmail": {
+      "contextualTriggers": [
+        {
+          "unconditional": {},
+          "onTriggerFunction": "onGmailMessage"
+        }
+      ]
+    }
+  }
+}
