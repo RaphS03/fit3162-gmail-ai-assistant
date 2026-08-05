@@ -1,5 +1,4 @@
 {
-  "_comment": "PROTOTYPE — THROWAWAY. Spike for issue #84. Do not merge to main.",
   "timeZone": "Australia/Melbourne",
   "exceptionLogging": "STACKDRIVER",
   "runtimeVersion": "V8",
